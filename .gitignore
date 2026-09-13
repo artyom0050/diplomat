@@ -1,0 +1,9 @@
+.DS_Store
+.claude/
+Claude outputs/
+images/_replace/
+diplomat-menu-preview.html
+diplomat-menu-images.md
+restaurant-checklist.md
+descriptions-draft.md
+qr/
