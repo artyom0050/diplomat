@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- Have the restaurant (ideally its lawyer) review this text. Add email/phone/address to Contact when confirmed. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Privacy Policy — The Diplomat</title>
+<style>
+  body{margin:0;background:#f6f2ea;color:#22251f;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  main{max-width:640px;margin:0 auto;padding:28px 20px 48px}
+  h1{font:700 32px/1.1 Georgia,serif;margin:0 0 6px}
+  h2{font:700 20px/1.2 Georgia,serif;margin:26px 0 6px}
+  .muted{color:#6c6b62;font-size:13px}
+  a{color:#56704f}
+  button{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #e5ddcf;background:#fff;font:600 15px inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+  <p><a href="./">← Back to menu</a></p>
+  <h1>Privacy Policy</h1>
+  <p class="muted">The Diplomat, Glendora · Last updated: September 16, 2026</p>
+
+  <p>This page explains what information our online menu collects and how it is used.</p>
+
+  <h2>What we collect</h2>
+  <p>The menu itself does not ask for your name, email, or any other personal details, and it does not take orders or payments.</p>
+  <p>If you tap <strong>Accept</strong> on the cookie banner, we use Google Analytics and Google Ads. These services set cookies and receive information such as the pages and dishes you view, your device and browser type, approximate location, and an online identifier.</p>
+  <!-- If metaPixel is set in tracking-config.js, add here:
+  <p>We also use the Meta Pixel (Facebook and Instagram) to measure visits and show you our ads on Meta platforms.
+  Meta processes this information under its own policy: <a href="https://www.facebook.com/privacy/policy/">facebook.com/privacy/policy</a>.</p> -->
+  <p>If you tap <strong>Decline</strong>, these services are not loaded.</p>
+
+  <h2>How we use it</h2>
+  <ul>
+    <li>To understand how guests use the menu (for example, which dishes are viewed most).</li>
+    <li>To show ads for The Diplomat to people who visited our menu, on Google and partner websites and apps (remarketing).</li>
+  </ul>
+  <p>Google processes this information under its own policies: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites that use its services</a>.</p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Change your choice at any time: <button type="button" id="reset">Reset cookie choice</button></li>
+    <li>Manage Google ad personalization: <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a></li>
+    <li>Opt out of Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google Analytics opt-out add-on</a></li>
+  </ul>
+  <p>California residents may have rights under the California Consumer Privacy Act, including the right to opt out of the sharing of personal information for targeted advertising. Declining cookies on the banner is how you opt out on this menu.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy? Please ask your server or contact The Diplomat, Glendora.</p>
+</main>
+<script>
+document.getElementById("reset").addEventListener("click", () => {
+  try { localStorage.removeItem("diplomat-consent"); } catch (e) {}
+  location.href = "./";
+});
+</script>
+</body>
+</html>

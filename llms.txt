@@ -1,0 +1,150 @@
+# The Diplomat
+
+> Mediterranean restaurant in Glendora. Full menu with prices below.
+
+- Menu website: https://artyom0050.github.io/diplomat/
+- Halal
+- Menu labels dishes as Vegan (VE), Vegetarian (V) and Gluten Free (GF)
+- Wine, beer and cocktails: ask for the alcoholic beverage menu
+- 20% gratuity is applied to parties of 6 and more
+
+## Menu (prices in USD)
+
+### Dips & Appetizers
+
+- Hummus (Vegan, Gluten Free): $12 — Spread made from ground chickpeas and sesame seeds, olive oil, lemon, and garlic
+- Spicy Hummus (Vegan, Gluten Free): $13 — Hummus with Sambal Oelek
+- Spicy Hummus with Sautéed Filet Beef (Gluten Free): $15 — Hummus with Sambal Oelek topped with sautéed Filet Mignon
+- Hummus Special with Sautéed Filet Beef (Gluten Free): $14 — Hummus topped with sautéed Filet Mignon
+- Baba-Ghanouj (Moutabal) (Vegetarian, Gluten Free): $13 — Grilled smoked eggplant mixed with sesame paste
+- Tabbouleh (Vegan): $13 — Chopped parsley salad with tomatoes, green onions, cracked wheat, olive oil, and lemon juice
+- Grape Leaves (4 pieces; Vegan, Gluten Free): $13 — 4 pieces, stuffed with seasoned rice and tomatoes, cooked with pomegranate molasses
+- Moroccan Eggplant (Vegan, Gluten Free): $13 — Oven roasted eggplant, onions, bell peppers, and ripe tomatoes
+- Jajike, Tzatziki (Vegetarian, Gluten Free): $13 — Greek yoghurt dip with diced cucumbers, dried mint, and minced garlic
+- Spicy Lebni Plate (Vegetarian, Gluten Free): $13 — Greek yoghurt dip with chopped jalapeños and garlic
+- French Feta Cheese Plate (Vegetarian, Gluten Free): $13 — Served with fresh tomatoes and cucumbers, topped with olive oil and dried oregano
+- Selected Olives (Vegan, Gluten Free): $10 — Black Kalamata and seasoned, marinated green Koura olives
+- Pickle Platter (Vegan, Gluten Free): $10 — Traditional turnip pickles marinated with beets
+- Appetizer Sampler (Combo for Two): $35 — Vegetarian delight with Hummus, Tabbouleh, Baba-Ghanouj, Feta cheese, Grape leaves, and pickles
+
+### Hot Appetizers
+
+- Falafel (4 pcs; Vegan, Gluten Free): $13 — Seasoned bean medley, minced garlic, onions and parsley. Fried and served with tahini sauce
+- Halloum (4 pcs; Vegetarian, Gluten Free): $16 — Pan grilled Greek sheep cheese served with fresh tomatoes and Kalamata olives
+- Soujouk (8 pcs): $16 — Spicy Armenian beef sausage slices sautéed with fresh tomatoes
+- Makanek (8 pcs): $16 — Small Lebanese lamb sausages stuffed with pine nuts, sautéed in lemon juice
+- Mediterranean Spinach (Vegan, Gluten Free): $13 — Sautéed with red onions, spices, olive oil, and lemon juice
+- Cheese Rolls (4 pcs; Vegetarian): $13 — Lavash filled and rolled with mild white seasoned cheese, fried
+- Spinach Boreg (4 pcs; Vegan): $13 — Sautéed spinach and onions, seasoned and stuffed in empanada dough, fried
+- Potato Boreg (4 pcs; Vegan): $13 — Mashed potato, seasoned, and stuffed in empanada dough, fried
+- Soujouk Boreg (4 pcs): $15 — Spicy Armenian beef sausage with white mozzarella cheese, stuffed in empanada dough, fried
+- Sambousek: $15 — Ground beef, onions, and spices, stuffed in empanada dough, fried
+- Fried Brussels Sprouts (Vegan, Gluten Free): $15 — Fried and seasoned with garlic and spices
+- Fried Cauliflower (Vegan, Gluten Free): $15 — Seasoned with minced garlic, parsley, and lemon juice
+- French Fries (Vegan, Gluten Free): $9
+- Garlic Fries (Vegan, Gluten Free): $11 — Seasoned with fresh minced garlic and parsley
+- Hot Appetizer Sampler: $45 — 2 cheese rolls, 2 potato boreg, 2 spinach boreg, 2 soujouk boreg, 2 sambousek
+
+### Mediterranean Specialties
+
+- Sautéed Frog Legs (1 lb): $35 — Tender frog legs, seasoned and pan sautéed with garlic, lemon, and cilantro
+- Sautéed Quails (4 pcs): $35 — Fresh quails, seasoned and pan sautéed with crushed garlic and lemon juice
+- Kibbeh Nayyeh (Chee-Kufte): $27 — An authentic Lebanese dish made from finely minced beef tartare with cracked wheat and seasoning
+- Fried Kibbeh (4 pcs): $15 — Ground Beef, onions, salt, 7 spices, black pepper
+
+### Homemade Soups
+
+- Vegetable Soup (Vegan, Gluten Free): $14 — Mix of fresh zucchini, carrots, celery, potatoes, and leek cooked in lemon and tomato broth with extra virgin olive oil
+- Swiss Chard Lentil Soup (Vegan, Gluten Free): $14 — Brown lentils cooked with flavors of fresh Swiss chard, potatoes, cilantro, and roasted garlic in lemon broth with extra virgin olive oil
+- Red Lentil Soup (Vegan, Gluten Free): $14 — Red lentils cooked with potatoes, red peppers, and onions in cumin-infused vegetable broth with extra virgin olive oil
+- Add Grilled Chicken (3 pcs): $13
+- Add Grilled Beef (3 pcs): $14
+
+### Fresh Salads
+
+- Garden Salad (Vegan, Gluten Free): $15 — Fresh romaine lettuce, spring mix, tomatoes, cucumber, and onions served with our special dressing. Add a piece of salmon or cod $24
+- Fattoush Salad (Vegan): $16 — Romaine lettuce, tomatoes, cucumbers, spring mix, onions, fresh mint, and pita chips, tossed with light garlic dressing. Add a piece of salmon or cod $24
+- Greek Salad (Vegetarian, Gluten Free): $17 — Romaine lettuce, tomatoes, cucumber, spring mix, onions, Kalamata olives, feta cheese, with olive oil and lemon juice dressing. Add a piece of salmon or cod $24
+- Arugula Salad (Vegan, Gluten Free): $18 — Fresh arugula leaves, tomatoes, oranges, cucumber, and onions with sumac, olive oil, and lemon juice dressing. Add a piece of salmon or cod $25
+- Chicken Salad (Gluten Free): $20 — Grilled chicken kebab on garden salad
+- Filet Beef Salad (Gluten Free): $22 — Grilled filet mignon kebab on garden salad
+- Chicken Fattoush Salad: $20 — Grilled chicken breast kebab on fattoush salad
+- Filet Beef Fattoush Salad: $24 — Grilled filet mignon kebab on fattoush salad
+- Chicken Greek Salad (Gluten Free): $22 — Grilled chicken breast kebab on Greek salad
+- Filet Beef Greek Salad (Gluten Free): $24 — Grilled filet mignon kebab on Greek salad
+- Chicken Arugula Salad (Gluten Free): $21 — Grilled chicken breast kebab on arugula salad
+- Filet Beef Arugula Salad (Gluten Free): $24 — Grilled filet mignon kebab on arugula salad
+
+### Mediterranean Sandwiches
+Served Tuesday – Saturday, 11am – 4pm. Served on french baguette, with a side of hummus and pickles
+
+- Lule Sandwich: $21 — Lule kebab, pickles, onions, grilled tomato, grilled anaheim pepper, red pepper paste, and parsley
+- Chicken Shawarma Sandwich: $19 — Chicken shawarma, pickles, tomatoes, french fries, garlic paste, parsley, and tahini sauce or hummus
+
+### Mediterranean Wrap Combos
+Served Tuesday – Saturday, 11am – 4pm. Wrapped in pita bread, with a side of hummus and pickles
+
+- Falafel Wrap (Vegan): $16 — Fried falafel rolled with lettuce, tomatoes, pickles, and tahini sauce
+- Chicken Kebab Wrap: $17 — Chicken breast kebab rolled with lettuce, pickles, tomatoes, and garlic paste
+- Beef Kebab Wrap: $19 — Filet mignon kebab rolled with lettuce, pickles, tomatoes, and hummus
+- Lule Kebab Wrap: $19 — Lule Kebab rolled with lettuce, pickles, tomatoes, and hummus
+- Beef Shawarma Wrap: $19 — Pan grilled filet mignon with onions and rolled with fries, tomatoes, onions, pickles, and tahini sauce
+- Chicken Shawarma Wrap: $17 — Chicken shawarma rolled with fries, lettuce, tomatoes, pickles, and tahini sauce
+
+### Mediterranean Platters
+
+- Falafel (Vegan, Gluten Free): $18 — Bean medley seasoned with spices, garlic, onions, fried. Served on a bed of lettuce with pickles, tahini sauce, and hummus
+- Chicken Kebab: $20 — Chicken breast, marinated and grilled, served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $3
+- Beef Filet Kebab: $23 — Lean tender filet mignon, marinated and grilled, served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $3
+- Lule Kebab: $22 — Lean ground filet beef mixed with onions and spices, grilled. Served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $3
+- Salmon Fillet: $24 — Seasoned salmon fillet pan flamed with olive oil, lemon juice and garlic. Served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $3
+- Cod Fillet: $22 — Seasoned cod fillet pan flamed with olive oil, lemon juice and garlic. Served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $3
+- New Zealand Lamb Chops (4 pcs): $36 — Seasoned and marinated for 24 hours, grilled and served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $3
+- Combo for Two: $37 — 1 Chicken, 1 Beef, and 1 Lule Kebab. Served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $6
+- Combo for Six: $98 — 3 Chicken, 2 Beef, and 3 Lule Kebabs. Served with rice pilaf and grilled vegetables. Substitute rice with a bed of spinach for $6
+- Beef Shawarma: $24 — Sliced filet mignon, pan cooked with grilled onions and served with tahini sauce, rice pilaf, and hummus
+- Beef Shawarma Fries (Gluten Free): $22 — Served with fries, fresh chopped onion, tomatoes, pickles, and tahini sauce
+- Chicken Shawarma: $21 — Sliced chicken breast seasoned with 7 spices and served with tahini sauce, rice pilaf, and hummus
+- Chicken Shawarma Fries (Gluten Free): $21 — Served with fries, fresh chopped onion, tomatoes, pickles, and tahini sauce
+- Falafel Fries (Gluten Free): $19 — Served with fries, fresh chopped onion, tomatoes, pickles, and tahini sauce
+- Extra Skewers: Chicken $15, Lule $16, Beef $17
+
+### Kids Platters
+
+- Chicken Kebab: $14 — Served with rice or french fries (10 & under)
+- Beef Kebab: $16 — Served with rice or french fries (10 & under)
+
+### Side Orders
+
+- Rice: $9
+- Grilled Vegetables: $6
+- Grated Feta Cheese: $4
+- Mediterranean Spinach: $10 — Sautéed with red onions, spices, olive oil, and lemon juice
+- Garlic Sauce: 2 oz $4, 8 oz $12
+- Tahini Sauce (2 oz): $4
+- Sliced Cucumbers: $7
+- Sliced Jalapeños: $4
+- Extra Chicken Skewer: $15
+- Extra Beef Skewer: $17
+- Extra Lule Skewer: $16
+
+### Desserts
+
+- Baklava: $5
+- Diplomat Sweet: $8
+- Ashta: $10
+- Kunafa: $6
+
+### Cold Drinks
+
+- Soft Drinks: $4
+- Fresh Brewed Iced Tea: $4
+- Lemonade: $4
+- Water (Sparkling or Flat): $5
+- Jallab: $5 — Carob, Dates, Rose, and Grape
+
+### Hot Drinks
+
+- American Coffee: $5
+- Armenian Coffee: $5
+- Arabic Tea with Mint: $5 — Or variety of teas

@@ -4,9 +4,28 @@
 // "tags": VE = Vegan, V = Vegetarian, GF = Gluten Free (as printed on the paper menu).
 // "compact": true = one-line row without image.
 // "img": file name inside images/. If the file is missing, a placeholder is shown.
+// Restaurant info (top fields) is used for AI/search files (llms.txt, schema.org). Empty fields are skipped.
+// Fill in street, region (e.g. "CA"), postalCode, phone, hours when confirmed.
+// After editing on GitHub, llms.txt and the search markup are rebuilt automatically.
 window.MENU = {
  "name": "The Diplomat",
  "subtitle": "Glendora · Mediterranean",
+ "website": "https://artyom0050.github.io/diplomat/",
+ "cuisine": [
+  "Mediterranean"
+ ],
+ "city": "Glendora",
+ "region": "",
+ "postalCode": "",
+ "street": "",
+ "phone": "",
+ "hours": "",
+ "notes": [
+  "Halal",
+  "Menu labels dishes as Vegan (VE), Vegetarian (V) and Gluten Free (GF)",
+  "Wine, beer and cocktails: ask for the alcoholic beverage menu",
+  "20% gratuity is applied to parties of 6 and more"
+ ],
  "categories": [
   {
    "id": "dips",

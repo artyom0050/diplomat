@@ -1,0 +1,40 @@
+# Rebuilds llms.txt, sitemap.xml and the search markup in index.html
+# whenever menu.js changes (for example, after editing prices on github.com).
+name: Rebuild menu files
+
+on:
+  push:
+    branches: [main]
+    paths: [menu.js, tools/build.js]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/build.js
+      - name: Commit changes
+        id: commit
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Rebuild llms.txt and search markup from menu.js"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Request GitHub Pages rebuild
+        if: steps.commit.outputs.changed == 'true'
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+        env:
+          GH_TOKEN: ${{ github.token }}
