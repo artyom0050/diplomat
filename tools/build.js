@@ -20,7 +20,7 @@ const location = [M.street, M.city, [M.region, M.postalCode].filter(Boolean).joi
 // llms.txt
 const lines = [
   `# ${M.name}`, "",
-  `> ${M.cuisine.join(", ")} restaurant in ${location}. Full menu with prices below.`, "",
+  `> ${M.cuisine.join(", ")} restaurant at ${location}. Full menu with prices below.`, "",
   `- Menu website: ${url}`,
   M.phone ? `- Phone: ${M.phone}` : null,
   M.hours ? `- Hours: ${M.hours}` : null,
@@ -70,6 +70,7 @@ const ld = {
   servesCuisine: M.cuisine,
   address,
   ...(M.phone ? { telephone: M.phone } : {}),
+  ...(M.openingHours && M.openingHours.length ? { openingHours: M.openingHours } : {}),
   hasMenu: {
     "@type": "Menu",
     url,
@@ -82,7 +83,7 @@ const ld = {
   }
 };
 const seo = `<!-- SEO:START -->
-<meta name="description" content="${esc(`${M.name} — ${M.cuisine.join(", ")} restaurant in ${location}. Menu with prices: dips, kebabs, shawarma, salads, soups, desserts.`)}">
+<meta name="description" content="${esc(`${M.name} — ${M.cuisine.join(", ")} restaurant at ${location}. Menu with prices: dips, kebabs, shawarma, salads, soups, desserts.`)}">
 <link rel="canonical" href="${url}">
 <link rel="alternate" type="text/plain" title="LLM-friendly menu" href="llms.txt">
 <meta property="og:title" content="${esc(M.name)} — Menu">

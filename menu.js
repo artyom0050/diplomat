@@ -15,11 +15,11 @@ window.MENU = {
   "Mediterranean"
  ],
  "city": "Glendora",
- "region": "",
- "postalCode": "",
- "street": "",
- "phone": "",
- "hours": "",
+ "region": "CA",
+ "postalCode": "91741",
+ "street": "171 N Glendora Ave",
+ "phone": "(626) 335-7795",
+ "hours": "Tuesday – Sunday 11:00 am – 9:00 pm; closed Monday",
  "notes": [
   "Halal",
   "Menu labels dishes as Vegan (VE), Vegetarian (V) and Gluten Free (GF)",
@@ -1075,5 +1075,8 @@ window.MENU = {
     }
    ]
   }
+ ],
+ "openingHours": [
+  "Tu-Su 11:00-21:00"
  ]
 };

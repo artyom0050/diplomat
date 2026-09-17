@@ -1,8 +1,10 @@
 # The Diplomat
 
-> Mediterranean restaurant in Glendora. Full menu with prices below.
+> Mediterranean restaurant at 171 N Glendora Ave, Glendora, CA 91741. Full menu with prices below.
 
 - Menu website: https://artyom0050.github.io/diplomat/
+- Phone: (626) 335-7795
+- Hours: Tuesday – Sunday 11:00 am – 9:00 pm; closed Monday
 - Halal
 - Menu labels dishes as Vegan (VE), Vegetarian (V) and Gluten Free (GF)
 - Wine, beer and cocktails: ask for the alcoholic beverage menu
