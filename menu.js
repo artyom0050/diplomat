@@ -19,6 +19,7 @@ window.MENU = {
  "postalCode": "91741",
  "street": "171 N Glendora Ave",
  "phone": "(626) 335-7795",
+ "email": "",
  "hours": "Tuesday – Sunday 11:00 am – 9:00 pm; closed Monday",
  "notes": [
   "Halal",

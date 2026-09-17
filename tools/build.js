@@ -98,6 +98,21 @@ ${M.categories.map(c => `<section><h2>${esc(c.title)}</h2>${c.note ? `<p>${esc(c
 <ul>${c.items.map(it => `<li><strong>${esc(it.name)}</strong>${it.portion ? ` (${esc(it.portion)})` : ""} — ${esc(priceText(it))}${it.desc ? `. ${esc(it.desc)}` : ""}</li>`).join("")}</ul></section>`).join("\n")}
 <!-- STATIC-MENU:END -->`;
 
+// Contact block on the privacy page
+const contactLines = [
+  `<p>Questions about this policy? Contact us:</p>`,
+  `<p>${esc(M.name)}<br>`,
+  location ? `${esc(location)}<br>` : "",
+  M.phone ? `<a href="tel:${esc(M.phone.replace(/[^+\d]/g, ""))}">${esc(M.phone)}</a><br>` : "",
+  M.email ? `<a href="mailto:${esc(M.email)}">${esc(M.email)}</a>` : "",
+  `</p>`
+].filter(Boolean).join("\n");
+const privacyPath = path.join(root, "privacy.html");
+let privacy = fs.readFileSync(privacyPath, "utf8");
+privacy = privacy.replace(/<!-- CONTACT:START -->[\s\S]*?<!-- CONTACT:END -->/,
+  () => `<!-- CONTACT:START -->\n${contactLines}\n<!-- CONTACT:END -->`);
+fs.writeFileSync(privacyPath, privacy);
+
 const indexPath = path.join(root, "index.html");
 let html = fs.readFileSync(indexPath, "utf8");
 html = html.replace(/<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/, () => seo);
