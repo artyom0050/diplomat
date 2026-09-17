@@ -1,6 +1,6 @@
-# The Diplomat — Menu
+# The Diplomat Junior — Menu
 
-Mobile menu for The Diplomat, Glendora Mediterranean.
+Mobile menu for The Diplomat Junior, Glendora Mediterranean.
 
 ## How to change dishes and prices
 

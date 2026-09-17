@@ -8,7 +8,7 @@
 // Fill in street, region (e.g. "CA"), postalCode, phone, hours when confirmed.
 // After editing on GitHub, llms.txt and the search markup are rebuilt automatically.
 window.MENU = {
- "name": "The Diplomat",
+ "name": "The Diplomat Junior",
  "subtitle": "Glendora · Mediterranean",
  "website": "https://artyom0050.github.io/diplomat/",
  "cuisine": [
