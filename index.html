@@ -55,8 +55,11 @@
   .chip[aria-current="true"]{background:var(--sage);border-color:var(--sage);color:#fff}
 
   main{max-width:640px;margin:0 auto;padding:4px 14px 24px}
-  section.cat{scroll-margin-top:64px;padding-top:22px}
-  .cat-head{display:flex;align-items:center;gap:10px;margin:0 4px 4px}
+  section.cat{scroll-margin-top:var(--nav-h,58px);padding-top:16px}
+  .cat-head{position:sticky;top:var(--nav-h,58px);z-index:5;display:flex;align-items:center;gap:10px;
+    margin:0;padding:10px 4px 8px;background:var(--bg)}
+  .cat-head::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;
+    background:linear-gradient(var(--bg),rgba(246,242,234,0));pointer-events:none}
   h2{font:700 30px/1.1 var(--serif);margin:0}
   .cat-head .sprig-sm{flex:1 1 auto;min-width:46px;max-width:120px;height:30px;opacity:.6}
   .cat-note{margin:0 4px 10px;color:var(--muted);font-size:13px}
@@ -278,13 +281,20 @@ if (addressLine) contact.append(h("p", {}, h("a", {
 if (MENU.phone) contact.append(h("p", {}, h("a", { href: "tel:" + MENU.phone.replace(/[^+\d]/g, "") }, MENU.phone)));
 if (MENU.hours) contact.append(h("p", {}, MENU.hours));
 
+// Sticky category headings start right under the category bar
+const nav = document.querySelector("nav.cats");
+const setNavHeight = () => document.documentElement.style.setProperty("--nav-h", nav.offsetHeight + "px");
+setNavHeight();
+addEventListener("resize", setNavHeight);
+
 // Highlight the chip of the section currently in view
 const chips = [...chipsBox.children];
 const sections = [...document.querySelectorAll("section.cat")];
 let current;
 function syncChip() {
   let active = sections[0];
-  for (const s of sections) if (s.getBoundingClientRect().top - 80 <= 0) active = s;
+  const line = nav.offsetHeight + 8;
+  for (const s of sections) if (s.getBoundingClientRect().top - line <= 0) active = s;
   if (innerHeight + scrollY >= document.body.scrollHeight - 2) active = sections[sections.length - 1];
   if (active.id === current) return;
   current = active.id;
