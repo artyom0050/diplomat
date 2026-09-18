@@ -22,6 +22,7 @@
   :root{
     --bg:#f6f2ea; --card:#fffdf8; --ink:#22251f; --muted:#6c6b62; --line:#e5ddcf;
     --sage:#56704f; --sage-soft:#e6ebdf; --gold:#8b6a37;
+    --leaf-a:#93a986; --leaf-b:#b6c4a5; --leaf-stem:#8a9c7e;
     --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
     --sans:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
@@ -31,7 +32,14 @@
   body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--sans)}
   img{max-width:100%}
 
-  header.top{padding:28px 20px 18px;text-align:center;max-width:640px;margin:0 auto}
+  header.top{position:relative;overflow:hidden;padding:34px 20px 18px;text-align:center;max-width:640px;margin:0 auto}
+  header.top > :not(.sprig){position:relative;z-index:1}
+  .sprig{position:absolute;width:200px;opacity:.55;pointer-events:none;z-index:0}
+  .sprig.tl{top:-18px;left:-30px}
+  .sprig.tr{top:-14px;right:-32px;transform:scaleX(-1)}
+  .sprig.br{bottom:-22px;right:-30px;transform:rotate(180deg)}
+  .sprig.bl{bottom:-18px;left:-32px;transform:rotate(180deg) scaleX(-1)}
+  @media (max-width:400px){ .sprig{width:160px} }
   .brand-the{font:600 13px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
   h1{font:700 44px/1 var(--serif);margin:6px 0 6px;letter-spacing:.01em}
   .brand-sub{font:500 13px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -75,8 +83,10 @@
     background:linear-gradient(135deg,#e9eee3,#dfe6d7)}
   .ph svg{width:30px;height:30px;opacity:.75}
 
-  footer{max-width:640px;margin:10px auto 0;padding:22px 20px calc(36px + env(safe-area-inset-bottom));
+  footer{position:relative;overflow:hidden;max-width:640px;margin:10px auto 0;
+    padding:22px 20px calc(56px + env(safe-area-inset-bottom));
     color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  footer > :not(.sprig){position:relative;z-index:1}
   footer p{margin:0 0 10px}
   .halal{display:inline-block;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
     border:1.5px solid var(--ink);color:var(--ink);border-radius:999px;padding:7px 12px;margin-bottom:12px}
@@ -117,6 +127,8 @@
 </head>
 <body>
 <header class="top">
+  <svg class="sprig tl" viewBox="0 0 200 160" aria-hidden="true" focusable="false"><path d="M4 6 C56 14, 104 40, 168 64" fill="none" stroke="var(--leaf-stem)" stroke-width="2.2" stroke-linecap="round"/><path d="M0 0 C10.2 -6.7, 23.9 -6.7, 34.1 0 C23.9 6.7, 10.2 6.7, 0 0 Z" fill="var(--leaf-a)" transform="translate(13.3 7.6) rotate(-37.2)"/><path d="M0 0 C10.1 -6.1, 23.6 -6.1, 33.7 0 C23.6 6.1, 10.1 6.1, 0 0 Z" fill="var(--leaf-b)" transform="translate(42.3 15.0) rotate(67.6)"/><path d="M0 0 C7.4 -5.2, 17.2 -5.2, 24.6 0 C17.2 5.2, 7.4 5.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(71.4 25.1) rotate(-30.2)"/><path d="M0 0 C7.8 -5.3, 18.2 -5.3, 26.0 0 C18.2 5.3, 7.8 5.3, 0 0 Z" fill="var(--leaf-a)" transform="translate(101.5 37.1) rotate(58.5)"/><path d="M0 0 C6.7 -3.9, 15.6 -3.9, 22.2 0 C15.6 3.9, 6.7 3.9, 0 0 Z" fill="var(--leaf-b)" transform="translate(133.5 50.4) rotate(-21.5)"/><path d="M0 0 C6.0 -3.2, 14.0 -3.2, 20.1 0 C14.0 3.2, 6.0 3.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(168.0 64.0) rotate(58.5)"/><path d="M6 12 C38 46, 60 92, 84 146" fill="none" stroke="var(--leaf-stem)" stroke-width="2.0" stroke-linecap="round"/><path d="M0 0 C8.5 -6.3, 19.8 -6.3, 28.3 0 C19.8 6.3, 8.5 6.3, 0 0 Z" fill="var(--leaf-a)" transform="translate(11.7 18.2) rotate(1.2)"/><path d="M0 0 C7.4 -5.5, 17.2 -5.5, 24.6 0 C17.2 5.5, 7.4 5.5, 0 0 Z" fill="var(--leaf-b)" transform="translate(32.0 45.1) rotate(92.8)"/><path d="M0 0 C7.3 -4.0, 17.1 -4.0, 24.5 0 C17.1 4.0, 7.3 4.0, 0 0 Z" fill="var(--leaf-a)" transform="translate(50.2 75.6) rotate(27.5)"/><path d="M0 0 C6.8 -3.6, 15.8 -3.6, 22.6 0 C15.8 3.6, 6.8 3.6, 0 0 Z" fill="var(--leaf-a)" transform="translate(67.3 109.3) rotate(102.5)"/><path d="M0 0 C5.9 -3.7, 13.9 -3.7, 19.8 0 C13.9 3.7, 5.9 3.7, 0 0 Z" fill="var(--leaf-b)" transform="translate(84.0 146.0) rotate(26.8)"/><path d="M0 3 C64 2, 126 12, 186 26" fill="none" stroke="var(--leaf-stem)" stroke-width="1.7" stroke-linecap="round"/><path d="M0 0 C8.3 -4.7, 19.3 -4.7, 27.6 0 C19.3 4.7, 8.3 4.7, 0 0 Z" fill="var(--leaf-a)" transform="translate(11.5 2.9) rotate(-45.9)"/><path d="M0 0 C6.2 -4.8, 14.5 -4.8, 20.8 0 C14.5 4.8, 6.2 4.8, 0 0 Z" fill="var(--leaf-b)" transform="translate(56.1 4.8) rotate(50.9)"/><path d="M0 0 C6.6 -4.2, 15.4 -4.2, 22.0 0 C15.4 4.2, 6.6 4.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(100.1 9.6) rotate(-31.4)"/><path d="M0 0 C5.0 -2.9, 11.7 -2.9, 16.7 0 C11.7 2.9, 5.0 2.9, 0 0 Z" fill="var(--leaf-a)" transform="translate(143.4 16.9) rotate(47.5)"/><path d="M0 0 C4.0 -2.6, 9.3 -2.6, 13.2 0 C9.3 2.6, 4.0 2.6, 0 0 Z" fill="var(--leaf-b)" transform="translate(186.0 26.0) rotate(-31.7)"/></svg>
+  <svg class="sprig tr" viewBox="0 0 200 160" aria-hidden="true" focusable="false"><path d="M4 6 C56 14, 104 40, 168 64" fill="none" stroke="var(--leaf-stem)" stroke-width="2.2" stroke-linecap="round"/><path d="M0 0 C10.2 -6.7, 23.9 -6.7, 34.1 0 C23.9 6.7, 10.2 6.7, 0 0 Z" fill="var(--leaf-a)" transform="translate(13.3 7.6) rotate(-37.2)"/><path d="M0 0 C10.1 -6.1, 23.6 -6.1, 33.7 0 C23.6 6.1, 10.1 6.1, 0 0 Z" fill="var(--leaf-b)" transform="translate(42.3 15.0) rotate(67.6)"/><path d="M0 0 C7.4 -5.2, 17.2 -5.2, 24.6 0 C17.2 5.2, 7.4 5.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(71.4 25.1) rotate(-30.2)"/><path d="M0 0 C7.8 -5.3, 18.2 -5.3, 26.0 0 C18.2 5.3, 7.8 5.3, 0 0 Z" fill="var(--leaf-a)" transform="translate(101.5 37.1) rotate(58.5)"/><path d="M0 0 C6.7 -3.9, 15.6 -3.9, 22.2 0 C15.6 3.9, 6.7 3.9, 0 0 Z" fill="var(--leaf-b)" transform="translate(133.5 50.4) rotate(-21.5)"/><path d="M0 0 C6.0 -3.2, 14.0 -3.2, 20.1 0 C14.0 3.2, 6.0 3.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(168.0 64.0) rotate(58.5)"/><path d="M6 12 C38 46, 60 92, 84 146" fill="none" stroke="var(--leaf-stem)" stroke-width="2.0" stroke-linecap="round"/><path d="M0 0 C8.5 -6.3, 19.8 -6.3, 28.3 0 C19.8 6.3, 8.5 6.3, 0 0 Z" fill="var(--leaf-a)" transform="translate(11.7 18.2) rotate(1.2)"/><path d="M0 0 C7.4 -5.5, 17.2 -5.5, 24.6 0 C17.2 5.5, 7.4 5.5, 0 0 Z" fill="var(--leaf-b)" transform="translate(32.0 45.1) rotate(92.8)"/><path d="M0 0 C7.3 -4.0, 17.1 -4.0, 24.5 0 C17.1 4.0, 7.3 4.0, 0 0 Z" fill="var(--leaf-a)" transform="translate(50.2 75.6) rotate(27.5)"/><path d="M0 0 C6.8 -3.6, 15.8 -3.6, 22.6 0 C15.8 3.6, 6.8 3.6, 0 0 Z" fill="var(--leaf-a)" transform="translate(67.3 109.3) rotate(102.5)"/><path d="M0 0 C5.9 -3.7, 13.9 -3.7, 19.8 0 C13.9 3.7, 5.9 3.7, 0 0 Z" fill="var(--leaf-b)" transform="translate(84.0 146.0) rotate(26.8)"/><path d="M0 3 C64 2, 126 12, 186 26" fill="none" stroke="var(--leaf-stem)" stroke-width="1.7" stroke-linecap="round"/><path d="M0 0 C8.3 -4.7, 19.3 -4.7, 27.6 0 C19.3 4.7, 8.3 4.7, 0 0 Z" fill="var(--leaf-a)" transform="translate(11.5 2.9) rotate(-45.9)"/><path d="M0 0 C6.2 -4.8, 14.5 -4.8, 20.8 0 C14.5 4.8, 6.2 4.8, 0 0 Z" fill="var(--leaf-b)" transform="translate(56.1 4.8) rotate(50.9)"/><path d="M0 0 C6.6 -4.2, 15.4 -4.2, 22.0 0 C15.4 4.2, 6.6 4.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(100.1 9.6) rotate(-31.4)"/><path d="M0 0 C5.0 -2.9, 11.7 -2.9, 16.7 0 C11.7 2.9, 5.0 2.9, 0 0 Z" fill="var(--leaf-a)" transform="translate(143.4 16.9) rotate(47.5)"/><path d="M0 0 C4.0 -2.6, 9.3 -2.6, 13.2 0 C9.3 2.6, 4.0 2.6, 0 0 Z" fill="var(--leaf-b)" transform="translate(186.0 26.0) rotate(-31.7)"/></svg>
   <div class="brand-the">The</div>
   <h1>Diplomat Junior</h1>
   <div class="brand-sub">Glendora · Mediterranean</div>
@@ -154,6 +166,7 @@
 <!-- STATIC-MENU:END --></main>
 
 <footer>
+  <svg class="sprig br" viewBox="0 0 200 160" aria-hidden="true" focusable="false"><path d="M4 6 C56 14, 104 40, 168 64" fill="none" stroke="var(--leaf-stem)" stroke-width="2.2" stroke-linecap="round"/><path d="M0 0 C10.2 -6.7, 23.9 -6.7, 34.1 0 C23.9 6.7, 10.2 6.7, 0 0 Z" fill="var(--leaf-a)" transform="translate(13.3 7.6) rotate(-37.2)"/><path d="M0 0 C10.1 -6.1, 23.6 -6.1, 33.7 0 C23.6 6.1, 10.1 6.1, 0 0 Z" fill="var(--leaf-b)" transform="translate(42.3 15.0) rotate(67.6)"/><path d="M0 0 C7.4 -5.2, 17.2 -5.2, 24.6 0 C17.2 5.2, 7.4 5.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(71.4 25.1) rotate(-30.2)"/><path d="M0 0 C7.8 -5.3, 18.2 -5.3, 26.0 0 C18.2 5.3, 7.8 5.3, 0 0 Z" fill="var(--leaf-a)" transform="translate(101.5 37.1) rotate(58.5)"/><path d="M0 0 C6.7 -3.9, 15.6 -3.9, 22.2 0 C15.6 3.9, 6.7 3.9, 0 0 Z" fill="var(--leaf-b)" transform="translate(133.5 50.4) rotate(-21.5)"/><path d="M0 0 C6.0 -3.2, 14.0 -3.2, 20.1 0 C14.0 3.2, 6.0 3.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(168.0 64.0) rotate(58.5)"/><path d="M6 12 C38 46, 60 92, 84 146" fill="none" stroke="var(--leaf-stem)" stroke-width="2.0" stroke-linecap="round"/><path d="M0 0 C8.5 -6.3, 19.8 -6.3, 28.3 0 C19.8 6.3, 8.5 6.3, 0 0 Z" fill="var(--leaf-a)" transform="translate(11.7 18.2) rotate(1.2)"/><path d="M0 0 C7.4 -5.5, 17.2 -5.5, 24.6 0 C17.2 5.5, 7.4 5.5, 0 0 Z" fill="var(--leaf-b)" transform="translate(32.0 45.1) rotate(92.8)"/><path d="M0 0 C7.3 -4.0, 17.1 -4.0, 24.5 0 C17.1 4.0, 7.3 4.0, 0 0 Z" fill="var(--leaf-a)" transform="translate(50.2 75.6) rotate(27.5)"/><path d="M0 0 C6.8 -3.6, 15.8 -3.6, 22.6 0 C15.8 3.6, 6.8 3.6, 0 0 Z" fill="var(--leaf-a)" transform="translate(67.3 109.3) rotate(102.5)"/><path d="M0 0 C5.9 -3.7, 13.9 -3.7, 19.8 0 C13.9 3.7, 5.9 3.7, 0 0 Z" fill="var(--leaf-b)" transform="translate(84.0 146.0) rotate(26.8)"/><path d="M0 3 C64 2, 126 12, 186 26" fill="none" stroke="var(--leaf-stem)" stroke-width="1.7" stroke-linecap="round"/><path d="M0 0 C8.3 -4.7, 19.3 -4.7, 27.6 0 C19.3 4.7, 8.3 4.7, 0 0 Z" fill="var(--leaf-a)" transform="translate(11.5 2.9) rotate(-45.9)"/><path d="M0 0 C6.2 -4.8, 14.5 -4.8, 20.8 0 C14.5 4.8, 6.2 4.8, 0 0 Z" fill="var(--leaf-b)" transform="translate(56.1 4.8) rotate(50.9)"/><path d="M0 0 C6.6 -4.2, 15.4 -4.2, 22.0 0 C15.4 4.2, 6.6 4.2, 0 0 Z" fill="var(--leaf-a)" transform="translate(100.1 9.6) rotate(-31.4)"/><path d="M0 0 C5.0 -2.9, 11.7 -2.9, 16.7 0 C11.7 2.9, 5.0 2.9, 0 0 Z" fill="var(--leaf-a)" transform="translate(143.4 16.9) rotate(47.5)"/><path d="M0 0 C4.0 -2.6, 9.3 -2.6, 13.2 0 C9.3 2.6, 4.0 2.6, 0 0 Z" fill="var(--leaf-b)" transform="translate(186.0 26.0) rotate(-31.7)"/></svg>
   <div class="contact" id="contact"></div>
   <div class="halal">Halal</div>
   <p>VE – Vegan · V – Vegetarian · GF – Gluten Free</p>
