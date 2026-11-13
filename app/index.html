@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b0d">
+<title>The Diplomat Junior — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0d; --surface:#141417; --surface-2:#1c1c21; --line:#26262c;
+    --ink:#f4f2ef; --muted:#9a9aa3; --accent:#e8703a; --accent-soft:#2a1a13;
+    --sans:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --display:"UnifrakturMaguntia", Georgia, serif;
+    --r:20px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--sans);
+    overscroll-behavior-y:none}
+  img,video{max-width:100%}
+  button{font:inherit;color:inherit;cursor:pointer}
+  [hidden]{display:none !important}
+  .wrap{max-width:640px;margin:0 auto;padding:0 14px}
+
+  /* entry screen */
+  .entry{position:fixed;inset:0;z-index:50;background:
+      radial-gradient(120% 70% at 50% 0%, #1d1a19 0%, var(--bg) 60%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:32px 20px calc(28px + env(safe-area-inset-bottom));text-align:center}
+  .entry .logo{font:400 34px/1 var(--display);margin-bottom:6px}
+  .entry .tag{font:600 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+  .entry h1{font:700 40px/1 var(--sans);letter-spacing:-.02em;margin:34px 0 6px}
+  .entry p{margin:0 0 22px;color:var(--muted);font-size:14px}
+  .langs{width:100%;max-width:340px;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;margin-bottom:18px}
+  .langs button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;
+    background:none;border:0;border-bottom:1px solid var(--line);padding:14px 16px;text-align:left;min-height:52px}
+  .langs button:last-child{border-bottom:0}
+  .langs .native{font-weight:600}
+  .langs .en{display:block;color:var(--muted);font-size:12px}
+  .langs .check{color:var(--accent)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;width:100%;
+    max-width:340px;border:0;border-radius:14px;background:var(--ink);color:#111;
+    font-weight:600;letter-spacing:.02em}
+  .btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+
+  /* header */
+  header.bar{position:sticky;top:0;z-index:20;background:rgba(11,11,13,.86);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .bar .row{display:flex;align-items:center;gap:10px;max-width:640px;margin:0 auto;
+    padding:10px 14px;min-height:58px}
+  .brand{font:400 20px/1 var(--display);letter-spacing:.01em}
+  .brand small{display:block;font:600 8px/1.4 var(--sans);letter-spacing:.26em;
+    text-transform:uppercase;color:var(--muted)}
+  .bar .spacer{flex:1}
+  .icon-btn{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--line)}
+  .icon-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+  .cart-btn{position:relative;width:auto;padding:0 14px;border-radius:999px;gap:8px;display:flex}
+  .cart-btn .count{min-width:22px;height:22px;border-radius:999px;background:var(--accent);
+    color:#fff;font:600 12px/22px var(--sans);text-align:center;padding:0 6px}
+  .table-chip{font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);border:1px solid #3a2419;
+    padding:7px 10px;border-radius:999px}
+  .back{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:0;
+    font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  /* search */
+  .search{padding:8px 14px 12px;max-width:640px;margin:0 auto}
+  .search input{width:100%;min-height:48px;border-radius:14px;border:1px solid var(--line);
+    background:var(--surface);color:var(--ink);padding:0 16px;font:400 16px var(--sans)}
+  .search input::placeholder{color:var(--muted)}
+
+  /* home */
+  main{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .hero{position:relative;display:block;width:100%;text-align:left;border:1px solid var(--line);
+    border-radius:var(--r);overflow:hidden;background:var(--surface);padding:0;margin:14px 0 10px}
+  .hero .media{position:absolute;inset:0}
+  .hero .media img{width:100%;height:100%;object-fit:cover;opacity:.75}
+  .hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,
+    rgba(11,11,13,.94) 25%, rgba(11,11,13,.55) 65%, rgba(11,11,13,.2) 100%)}
+  .hero .body{position:relative;padding:26px 20px 20px;min-height:260px;display:flex;
+    flex-direction:column;justify-content:flex-end;gap:8px}
+  .hero h2{margin:0;font:700 34px/1 var(--sans);letter-spacing:-.02em;text-transform:uppercase}
+  .hero p{margin:0;color:var(--muted);max-width:18em}
+  .hero .cta{display:flex;align-items:center;gap:14px;margin-top:10px}
+  .hero .cta .btn{width:auto;max-width:none;padding:0 18px;min-height:46px;border-radius:12px}
+  .from{font-size:13px;color:var(--muted)}
+  .from b{display:block;color:var(--ink);font-weight:600;font-size:15px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .cat{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    background:var(--surface);padding:0;text-align:left;min-height:190px;display:block}
+  .cat .media{position:absolute;inset:0}
+  .cat .media img{width:100%;height:100%;object-fit:cover;opacity:.65}
+  .cat .shade{position:absolute;inset:0;background:linear-gradient(180deg,
+    rgba(11,11,13,.15) 0%, rgba(11,11,13,.82) 62%, rgba(11,11,13,.95) 100%)}
+  .cat .body{position:relative;height:100%;min-height:190px;display:flex;flex-direction:column;
+    justify-content:flex-end;gap:4px;padding:14px}
+  .cat h3{margin:0;font:600 17px/1.1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+  .cat p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.3}
+  .cat .from{margin-top:4px;font-size:12.5px}
+  .cat .from b{display:inline;font-size:13px}
+  .badge{position:absolute;top:10px;right:10px;z-index:2;background:rgba(11,11,13,.72);
+    border:1px solid var(--line);border-radius:10px;min-width:30px;padding:4px 7px;
+    font:600 12px/1.2 var(--sans);text-align:center}
+  .ph{width:100%;height:100%;display:grid;place-items:center;
+    background:linear-gradient(150deg,#1a1a1f,#101014);color:#3f3f49}
+  .ph svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:1.4}
+
+  .rail-head{display:flex;align-items:baseline;gap:10px;margin:26px 0 10px}
+  .rail-head h3{margin:0;font:600 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .rail{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;
+    margin:0 -14px;padding-inline:14px;scroll-snap-type:x mandatory}
+  .rail::-webkit-scrollbar{display:none}
+  .mini{flex:0 0 164px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;text-align:left;padding:0}
+  .mini .thumb{height:120px;background:#101014}
+  .mini .thumb img,.mini .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+  .mini .meta{padding:10px 12px 12px}
+  .mini .kicker{font:600 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .mini h4{margin:5px 0 8px;font:600 14px/1.25 var(--sans)}
+  .mini .price{font-weight:600}
+
+  /* list */
+  .list{display:grid;gap:10px;margin-top:12px}
+  .item{display:flex;gap:12px;width:100%;text-align:left;background:var(--surface);
+    border:1px solid var(--line);border-radius:16px;padding:10px;align-items:stretch}
+  .item .thumb{flex:0 0 92px;height:92px;border-radius:12px;overflow:hidden;background:#101014}
+  .item .thumb img,.item .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+  .item .info{flex:1;min-width:0;display:flex;flex-direction:column}
+  .item .kicker{font:600 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .item h4{margin:5px 0 0;font:600 16px/1.25 var(--sans);overflow-wrap:anywhere}
+  .item .desc{margin:4px 0 0;color:var(--muted);font-size:13px;display:-webkit-box;
+    -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .item .foot{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:8px}
+  .item .price{font-weight:600;font-size:16px}
+  .add{margin-left:auto;width:38px;height:38px;border-radius:50%;border:0;background:var(--ink);
+    color:#111;font-size:20px;line-height:1;display:grid;place-items:center}
+  .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .tag{font:600 10px/1 var(--sans);letter-spacing:.08em;color:#cfe0c6;background:#1b231a;
+    border:1px solid #28331f;padding:4px 6px;border-radius:6px}
+
+  .section-title{margin:22px 0 2px;font:700 26px/1.1 var(--sans);letter-spacing:-.01em;text-transform:uppercase}
+  .section-note{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+
+  /* sheet */
+  dialog{border:0;padding:0;background:transparent;max-width:100%;max-height:100%}
+  dialog::backdrop{background:rgba(0,0,0,.72)}
+  .sheet{position:fixed;left:0;right:0;bottom:0;margin:0 auto;width:100%;max-width:640px;
+    max-height:92dvh;overflow:auto;background:var(--surface);border:1px solid var(--line);
+    border-radius:22px 22px 0 0}
+  .sheet .media{position:relative;aspect-ratio:1/1;background:#101014}
+  .sheet .media img,.sheet .media video{width:100%;height:100%;object-fit:cover;display:block}
+  .sheet .close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;
+    border:0;background:rgba(11,11,13,.8);color:var(--ink);font-size:22px;line-height:1}
+  .sheet .note-img{position:absolute;left:12px;bottom:12px;background:rgba(11,11,13,.78);
+    border-radius:8px;padding:5px 8px;font-size:11px;color:var(--muted)}
+  .sheet .body{padding:18px 18px calc(20px + env(safe-area-inset-bottom))}
+  .sheet h3{margin:6px 0 0;font:700 24px/1.15 var(--sans);text-transform:uppercase;letter-spacing:-.01em}
+  .sheet .rail-head h3{margin:0;font:600 13px/1 var(--sans);letter-spacing:.2em;color:var(--muted)}
+  .sheet .portion{color:var(--muted);font-size:13px;margin-top:6px}
+  .sheet .desc{margin:12px 0 0;font-size:15px;line-height:1.5;color:#d9d7d2}
+  .sheet .extra{margin:10px 0 0;font-size:13.5px;color:var(--muted)}
+  .buy{position:sticky;bottom:0;display:flex;gap:10px;align-items:center;margin-top:18px;
+    padding-top:12px;background:linear-gradient(rgba(20,20,23,0),var(--surface) 35%)}
+  .stepper{display:flex;align-items:center;gap:4px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:12px;padding:4px}
+  .stepper button{width:38px;height:40px;border:0;background:none;font-size:18px;border-radius:8px}
+  .stepper span{min-width:26px;text-align:center;font-weight:600}
+  .buy .btn{flex:1;background:var(--accent);color:#fff}
+
+  /* order bar + drawer */
+  .orderbar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(rgba(11,11,13,0),rgba(11,11,13,.92) 40%)}
+  .orderbar .inner{max-width:640px;margin:0 auto}
+  .orderbar .btn{background:var(--accent);color:#fff;justify-content:space-between;padding:0 18px}
+  .order-list{display:grid;gap:10px;margin-top:14px}
+  .order-row{display:flex;gap:12px;align-items:center;background:var(--surface-2);
+    border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+  .order-row .n{flex:1;min-width:0}
+  .order-row .n b{display:block;font-weight:600}
+  .order-row .n span{color:var(--muted);font-size:13px}
+  .totals{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;font-size:15px}
+  .totals .line{display:flex;justify-content:space-between;margin-bottom:8px}
+  .totals .grand{font-size:20px;font-weight:700}
+  .hint{color:var(--muted);font-size:12.5px;margin-top:10px;line-height:1.45}
+  .empty{color:var(--muted);text-align:center;padding:30px 0}
+  footer.legal{color:var(--muted);font-size:12.5px;padding:26px 0 0;border-top:1px solid var(--line);margin-top:28px}
+  footer.legal a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="entry" id="entry" hidden>
+  <div class="logo">The Diplomat Junior</div>
+  <div class="tag">Glendora · Mediterranean</div>
+  <h1>Hello</h1>
+  <p>Choose your language</p>
+  <div class="langs" id="langs"></div>
+  <button class="btn" id="enter">Enter the menu</button>
+</div>
+
+<header class="bar">
+  <div class="row">
+    <button class="back" id="back" hidden>← Menu</button>
+    <div class="brand" id="brandTitle">Diplomat Junior<small>Glendora · Mediterranean</small></div>
+    <div class="spacer"></div>
+    <span class="table-chip" id="tableChip" hidden></span>
+    <button class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    </button>
+    <button class="icon-btn cart-btn" id="cartBtn" aria-label="Your order">
+      <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="count" id="cartCount">0</span>
+    </button>
+  </div>
+  <div class="search" id="searchBox" hidden>
+    <input type="search" id="searchInput" placeholder="Search dishes" autocomplete="off">
+  </div>
+</header>
+
+<main class="wrap" id="view"></main>
+
+<div class="orderbar" id="orderbar" hidden>
+  <div class="inner">
+    <button class="btn" id="openOrder">
+      <span id="orderBarLeft">Your order</span><span id="orderBarRight">$0</span>
+    </button>
+  </div>
+</div>
+
+<dialog id="sheet"><div class="sheet" id="sheetInner"></div></dialog>
+<dialog id="order"><div class="sheet" id="orderInner"></div></dialog>
+
+<script src="../menu.js"></script>
+<script src="app-config.js"></script>
+<script>
+const M = window.MENU, CFG = window.APP;
+const TAGS = { VE: "Vegan", V: "Vegetarian", GF: "Gluten free" };
+const money = n => "$" + n;
+const items = [];
+M.categories.forEach(c => c.items.forEach(i => { i.cat = c; items[i.n] = i; }));
+const catMin = c => Math.min(...c.items.map(i => i.price != null ? i.price : Math.min(...i.prices.map(p => p[1]))));
+const basePrice = i => i.price != null ? i.price : i.prices[0][1];
+const priceLabel = i => i.prices ? i.prices.map(([l, p]) => `${l} $${p}`).join(" · ") : money(i.price);
+
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (v === true) el.setAttribute(k, "");
+    else el.setAttribute(k, v);
+  }
+  for (const c of kids.flat()) if (c != null && c !== false) el.append(c);
+  return el;
+}
+function leaf() {
+  const ns = "http://www.w3.org/2000/svg", s = document.createElementNS(ns, "svg");
+  s.setAttribute("viewBox", "0 0 24 24"); s.setAttribute("aria-hidden", "true");
+  for (const d of ["M5 19c0-8 5-14 14-14 0 9-6 14-14 14Z", "M5 19 14 10"]) {
+    const p = document.createElementNS(ns, "path"); p.setAttribute("d", d); s.append(p);
+  }
+  return s;
+}
+const placeholder = () => h("div", { class: "ph" }, leaf());
+
+// A dish shows a looping video when menu.js gives it one, otherwise the photo.
+function media(it, { lazy = true } = {}) {
+  if (it.video) return h("video", {
+    src: "../" + it.video, poster: it.img ? "../images/" + it.img : null,
+    autoplay: true, loop: true, muted: true, playsinline: true, preload: lazy ? "none" : "auto"
+  });
+  if (!it.img) return placeholder();
+  const img = h("img", { src: "../images/" + it.img, alt: it.name, loading: lazy ? "lazy" : null });
+  img.addEventListener("error", () => img.replaceWith(placeholder()));
+  return img;
+}
+const tagRow = it => it.tags.length
+  ? h("div", { class: "tags" }, it.tags.map(t => h("span", { class: "tag" }, TAGS[t] || t))) : null;
+
+/* ---------- order (kept in this phone only) ---------- */
+const KEY = "diplomat-order";
+let order = [];
+try { order = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) {}
+const saveOrder = () => { try { localStorage.setItem(KEY, JSON.stringify(order)); } catch (e) {} };
+const orderTotal = () => order.reduce((s, l) => s + l.price * l.qty, 0);
+const orderCount = () => order.reduce((s, l) => s + l.qty, 0);
+function addToOrder(it, qty = 1) {
+  const line = order.find(l => l.n === it.n);
+  if (line) line.qty += qty; else order.push({ n: it.n, name: it.name, price: basePrice(it), qty });
+  saveOrder(); syncOrderUi();
+}
+function setQty(n, qty) {
+  const i = order.findIndex(l => l.n === n);
+  if (i < 0) return;
+  if (qty <= 0) order.splice(i, 1); else order[i].qty = qty;
+  saveOrder(); syncOrderUi(); if (orderDlg.open) renderOrder();
+}
+function syncOrderUi() {
+  const c = orderCount();
+  document.getElementById("cartCount").textContent = c;
+  const bar = document.getElementById("orderbar");
+  bar.hidden = c === 0;
+  document.getElementById("orderBarLeft").textContent = c + (c === 1 ? " item · view order" : " items · view order");
+  document.getElementById("orderBarRight").textContent = money(orderTotal());
+}
+
+/* ---------- screens ---------- */
+const view = document.getElementById("view");
+const setView = (...nodes) => view.replaceChildren(...nodes.flat().filter(Boolean));
+const backBtn = document.getElementById("back");
+const brandTitle = document.getElementById("brandTitle");
+
+function catCard(c, big) {
+  const hero = c.items.find(i => i.img);
+  const node = big ? h("button", { class: "hero", onclick: () => showCategory(c) }) : h("button", { class: "cat", onclick: () => showCategory(c) });
+  node.append(
+    h("span", { class: "badge" }, String(c.items.length)),
+    h("span", { class: "media" }, hero ? media(hero, { lazy: false }) : placeholder()),
+    h("span", { class: "shade" }),
+    h("span", { class: "body" },
+      h(big ? "h2" : "h3", {}, c.title.replace(/^Mediterranean /, "")),
+      h("p", {}, CFG.categoryNotes[c.id] || ""),
+      big
+        ? h("span", { class: "cta" },
+            h("span", { class: "btn" }, "See dishes →"),
+            h("span", { class: "from" }, "from ", h("b", {}, money(catMin(c)))))
+        : h("span", { class: "from" }, "from ", h("b", {}, money(catMin(c)))))
+  );
+  return node;
+}
+
+function miniCard(it) {
+  return h("button", { class: "mini", onclick: () => openSheet(it) },
+    h("span", { class: "thumb" }, media(it)),
+    h("span", { class: "meta" },
+      h("span", { class: "kicker" }, it.cat.title),
+      h("h4", {}, it.name),
+      h("span", { class: "price" }, priceLabel(it))));
+}
+
+function rail(title, list) {
+  if (!list.length) return null;
+  return h("section", {},
+    h("div", { class: "rail-head" }, h("h3", {}, title)),
+    h("div", { class: "rail" }, list.map(miniCard)));
+}
+
+function itemRow(it, showCat) {
+  const kicker = showCat ? it.cat.title : it.portion;
+  return h("button", { class: "item", onclick: () => openSheet(it) },
+    h("span", { class: "thumb" }, media(it)),
+    h("span", { class: "info" },
+      kicker ? h("span", { class: "kicker" }, kicker) : null,
+      h("h4", {}, it.name),
+      it.desc ? h("p", { class: "desc" }, it.desc) : null,
+      tagRow(it),
+      h("span", { class: "foot" },
+        h("span", { class: "price" }, priceLabel(it)),
+        h("span", { class: "add", role: "button", "aria-label": "Add " + it.name,
+          onclick: e => { e.stopPropagation(); addToOrder(it); } }, "+"))));
+}
+
+function showHome() {
+  backBtn.hidden = true; brandTitle.hidden = false;
+  closeSearch();
+  const lunch = M.categories.filter(c => c.id === "sandwiches" || c.id === "wraps").flatMap(c => c.items);
+  const vegan = items.filter(i => i && i.tags.includes("VE") && i.img).slice(0, 10);
+  setView(
+    catCard(M.categories.find(c => c.id === CFG.featured), true),
+    h("div", { class: "grid" }, M.categories.filter(c => c.id !== CFG.featured).map(c => catCard(c, false))),
+    rail("Lunch · Tue–Sat, 11am–4pm", lunch),
+    rail("Vegan dishes", vegan),
+    h("footer", { class: "legal" },
+      h("p", {}, "Images are for illustration only and may not show the dish as served."),
+      h("p", {}, "VE – Vegan · V – Vegetarian · GF – Gluten free. For any allergies and/or gluten free requirements ask your server."),
+      h("p", {}, "20% gratuity will be applied to parties of 6 and more."),
+      h("p", {}, h("a", { href: "../privacy.html" }, "Privacy Policy"), " · ", h("a", { href: "../" }, "Classic menu")))
+  );
+  scrollTo(0, 0);
+}
+
+function showCategory(c) {
+  backBtn.hidden = false; brandTitle.hidden = true;
+  closeSearch();
+  setView(
+    h("h2", { class: "section-title" }, c.title),
+    c.note ? h("p", { class: "section-note" }, c.note) : null,
+    h("div", { class: "list" }, c.items.map(i => itemRow(i, false))));
+  scrollTo(0, 0);
+}
+
+function showSearch(q) {
+  const s = q.trim().toLowerCase();
+  const found = !s ? [] : items.filter(i => i && ((i.name + " " + (i.desc || "")).toLowerCase().includes(s)));
+  setView(
+    h("h2", { class: "section-title" }, s ? found.length + " results" : "Search"),
+    h("div", { class: "list" }, found.map(i => itemRow(i, true))));
+}
+
+/* ---------- dish sheet ---------- */
+const sheet = document.getElementById("sheet");
+function openSheet(it) {
+  let qty = 1;
+  const qtyEl = h("span", {}, "1");
+  const addBtn = h("button", { class: "btn", onclick: () => { addToOrder(it, qty); sheet.close(); } },
+    "Add · " + money(basePrice(it)));
+  const price = () => { addBtn.textContent = "Add · " + money(basePrice(it) * qty); qtyEl.textContent = qty; };
+  const same = it.cat.items.filter(x => x !== it).slice(0, 6);
+
+  document.getElementById("sheetInner").replaceChildren(
+    h("div", { class: "media" },
+      media(it, { lazy: false }),
+      it.img || it.video ? h("span", { class: "note-img" }, "Illustrative image, not a photo of our dish") : null,
+      h("button", { class: "close", "aria-label": "Close", onclick: () => sheet.close() }, "×")),
+    h("div", { class: "body" },
+      h("div", { class: "kicker", style: "color:var(--muted);font:600 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase" }, it.cat.title),
+      h("h3", {}, it.name),
+      it.portion ? h("div", { class: "portion" }, it.portion) : null,
+      tagRow(it),
+      it.desc ? h("p", { class: "desc" }, it.desc) : null,
+      it.note ? h("p", { class: "extra" }, it.note) : null,
+      it.prices ? h("p", { class: "extra" }, priceLabel(it)) : null,
+      same.length ? h("section", {},
+        h("div", { class: "rail-head" }, h("h3", {}, "More from " + it.cat.title)),
+        h("div", { class: "rail" }, same.map(miniCard))) : null,
+      h("div", { class: "buy" },
+        h("div", { class: "stepper" },
+          h("button", { "aria-label": "Less", onclick: () => { qty = Math.max(1, qty - 1); price(); } }, "−"),
+          qtyEl,
+          h("button", { "aria-label": "More", onclick: () => { qty++; price(); } }, "+")),
+        addBtn))
+  );
+  sheet.showModal();
+}
+sheet.addEventListener("click", e => { if (e.target === sheet) sheet.close(); });
+
+/* ---------- order drawer ---------- */
+const orderDlg = document.getElementById("order");
+function renderOrder() {
+  const total = orderTotal();
+  document.getElementById("orderInner").replaceChildren(
+    h("div", { class: "body" },
+      h("div", { style: "display:flex;align-items:center;gap:10px" },
+        h("h3", { style: "flex:1;margin:0" }, "Your order"),
+        h("button", { class: "icon-btn", "aria-label": "Close", onclick: () => orderDlg.close() }, "×")),
+      order.length ? h("div", { class: "order-list" }, order.map(l =>
+        h("div", { class: "order-row" },
+          h("div", { class: "n" }, h("b", {}, l.name), h("span", {}, money(l.price) + " each")),
+          h("div", { class: "stepper" },
+            h("button", { "aria-label": "Less", onclick: () => setQty(l.n, l.qty - 1) }, "−"),
+            h("span", {}, String(l.qty)),
+            h("button", { "aria-label": "More", onclick: () => setQty(l.n, l.qty + 1) }, "+")),
+          h("b", {}, money(l.price * l.qty)))))
+        : h("p", { class: "empty" }, "Your order is empty"),
+      order.length ? h("div", { class: "totals" },
+        h("div", { class: "line grand" }, h("span", {}, "Total"), h("span", {}, money(total))),
+        h("p", { class: "hint" }, "Show this list to your server to order. Prices are from the menu; your bill is calculated by the restaurant. 20% gratuity applies to parties of 6 and more."),
+        h("button", { class: "btn ghost", style: "margin-top:14px", onclick: () => { order = []; saveOrder(); syncOrderUi(); renderOrder(); } }, "Clear order")) : null)
+  );
+}
+function openOrder() { renderOrder(); orderDlg.showModal(); }
+document.getElementById("cartBtn").addEventListener("click", openOrder);
+document.getElementById("openOrder").addEventListener("click", openOrder);
+orderDlg.addEventListener("click", e => { if (e.target === orderDlg) orderDlg.close(); });
+
+/* ---------- search ui ---------- */
+const searchBox = document.getElementById("searchBox"), searchInput = document.getElementById("searchInput");
+let searching = false;
+function closeSearch() { searching = false; searchBox.hidden = true; searchInput.value = ""; }
+document.getElementById("searchBtn").addEventListener("click", () => {
+  searching = !searching;
+  searchBox.hidden = !searching;
+  if (searching) { searchInput.focus(); showSearch(""); backBtn.hidden = false; } else showHome();
+});
+searchInput.addEventListener("input", () => showSearch(searchInput.value));
+backBtn.addEventListener("click", showHome);
+
+/* ---------- table number from the QR link (?table=7) ---------- */
+const table = new URLSearchParams(location.search).get("table");
+if (table && /^[\w-]{1,8}$/.test(table)) {
+  const chip = document.getElementById("tableChip");
+  chip.hidden = false; chip.textContent = "Table " + table;
+}
+
+/* ---------- entry screen ---------- */
+const entry = document.getElementById("entry");
+if (CFG.languages.length > 1) {
+  entry.hidden = false;
+  const box = document.getElementById("langs");
+  let picked = CFG.languages[0].code;
+  const draw = () => box.replaceChildren(...CFG.languages.map(l =>
+    h("button", { onclick: () => { picked = l.code; draw(); } },
+      h("span", {}, h("span", { class: "native" }, l.native), h("span", { class: "en" }, l.name)),
+      picked === l.code ? h("span", { class: "check" }, "✓") : null)));
+  draw();
+  document.getElementById("enter").addEventListener("click", () => { entry.hidden = true; });
+}
+
+showHome();
+syncOrderUi();
+</script>
+</body>
+</html>
