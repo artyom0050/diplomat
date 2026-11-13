@@ -66,7 +66,6 @@
   .cart-btn{position:relative;width:auto;padding:0 14px;border-radius:999px;gap:8px;display:flex}
   .cart-btn .count{min-width:24px;height:24px;border-radius:999px;background:var(--accent);
     color:#fff;font:600 13px/24px var(--sans);text-align:center;padding:0 6px}
-  .table-row{max-width:640px;margin:0 auto;padding:0 14px 10px}
   .table-chip{display:inline-block;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;
     white-space:nowrap;color:var(--accent);background:var(--accent-soft);border:1px solid #3a2419;
     padding:9px 12px;border-radius:999px}
@@ -222,7 +221,6 @@
       <span class="count" id="cartCount">0</span>
     </button>
   </div>
-  <div class="table-row" id="tableRow" hidden><span class="table-chip" id="tableChip"></span></div>
   <div class="search" id="searchBox" hidden>
     <input type="search" id="searchInput" placeholder="Search dishes" autocomplete="off">
   </div>
@@ -455,6 +453,8 @@ function renderOrder() {
       h("div", { style: "display:flex;align-items:center;gap:10px" },
         h("h3", { style: "flex:1;margin:0" }, "Your order"),
         h("button", { class: "icon-btn", "aria-label": "Close", onclick: () => orderDlg.close() }, "×")),
+      table && order.length ? h("div", { style: "margin-top:10px" },
+        h("span", { class: "table-chip" }, "Table " + table)) : null,
       order.length ? h("div", { class: "order-list" }, order.map(l =>
         h("div", { class: "order-row" },
           h("div", { class: "n" }, h("b", {}, l.name), h("span", {}, money(l.price) + " each")),
@@ -487,12 +487,9 @@ document.getElementById("searchBtn").addEventListener("click", () => {
 searchInput.addEventListener("input", () => showSearch(searchInput.value));
 backBtn.addEventListener("click", showHome);
 
-/* ---------- table number from the QR link (?table=7) ---------- */
-const table = new URLSearchParams(location.search).get("table");
-if (table && /^[\w-]{1,8}$/.test(table)) {
-  document.getElementById("tableRow").hidden = false;
-  document.getElementById("tableChip").textContent = "Table " + table;
-}
+/* ---------- table number from the QR link (?table=7), shown in the order ---------- */
+const tableParam = new URLSearchParams(location.search).get("table");
+const table = tableParam && /^[\w-]{1,8}$/.test(tableParam) ? tableParam : null;
 
 /* ---------- entry screen ---------- */
 const entry = document.getElementById("entry");
