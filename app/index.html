@@ -53,7 +53,8 @@
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .bar .row{display:flex;align-items:center;gap:10px;max-width:640px;margin:0 auto;
     padding:10px 14px;min-height:58px}
-  .brand{font:400 20px/1 var(--display);letter-spacing:.01em}
+  .brand{font:400 19px/1 var(--display);letter-spacing:.01em;white-space:nowrap}
+  @media (max-width:380px){ .brand{font-size:16px} .brand small{display:none} }
   .brand small{display:block;font:600 8px/1.4 var(--sans);letter-spacing:.26em;
     text-transform:uppercase;color:var(--muted)}
   .bar .spacer{flex:1}
